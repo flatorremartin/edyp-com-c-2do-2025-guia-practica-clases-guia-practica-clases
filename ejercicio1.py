@@ -8,6 +8,7 @@ class Camion:
         self.marca = marca
         self.carga = carga
         self.anio = anio
+        
 
     def validacion_patente:
         for x in 
@@ -36,4 +37,4 @@ print(furgon1 is furgon2)
 print(furgon3 == furgon4) #False
 print(furgon3 is furgon4) #False
 print(furgon1 == furgon4)
-
+print('prueba')
