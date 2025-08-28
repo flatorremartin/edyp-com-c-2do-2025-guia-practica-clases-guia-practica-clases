@@ -8,7 +8,7 @@ Dada la siguiente clase:
 
 ```python
 class Camion:
-    def __init__(self, marca, modelo):
+    def __init__(self, marca, modelo, carga, anio):
         self.patente = patente
         self.marca = marca
         self.carga = carga
@@ -16,6 +16,11 @@ class Camion:
 
     def __str__(self):
         return f"Camión: #{self.patente} \nCarga: {self.carga} \nMarca: {self.marca} \nAño: {self.anio}"
+    
+    def __eq__(self, other):
+      if not isinstance(other,Camion):
+        return False
+      return self.marca == other.marca 
 ```
 
 a. Indicá qué devuelven las siguientes expresiones. Analizalo con tus compañeros y luego ejecutá las instrucciones en la máquina para comprobar tu respuesta.
@@ -26,16 +31,19 @@ furgon2 = furgon1
 furgon3 = Camion("DEF456", "Volvo", 2000, 2021)
 furgon4 = Camion("ABC123", "Mercedes", 1000, 2020)
 
-print(furgon1 == furgon2)
-print(furgon1 is furgon2)
-print(furgon3 == furgon4)
-print(furgon3 is furgon4)
-print(furgon1 == furgon4) 
+print(furgon1 == furgon2) #True
+print(furgon1 is furgon2) #True
+print(furgon3 == furgon4) #False
+print(furgon3 is furgon4) #False
+print(furgon1 == furgon4) #False
 ```
 
 b. Modificá el código dado para que la comparación de dos objetos de la clase Camion devuelva True cuando todos sus atributos sean iguales.
 
 c. ¿Qué atributo hace único a nuestros objetos? Identificá el atributo que hace único al objeto Camion y modificá el código para que la comparación de dos objetos de la clase Camion devuelva True cuando ese atributo sea igual.
+
+El atributo que define que 2 camiones son realmente lo mismo.
+Es el mismo metodo de ''__eq__'' pero solo con patente
 
 d. Si dos personas tienen el mismo DNI, entonces... ¡Son la misma persona! ¿Cómo evitarías asignar el mismo DNI a dos personas distintas? Siguiendo esta analogía, adaptá el código anterior para el caso de los camiones.
 
